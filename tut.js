@@ -4,6 +4,7 @@ var webdriver=require("selenium-webdriver"),
 	By = webdriver.By,
 	until = webdriver.until;
 
+
 //Creates function with new WebDriver instances
 // function createDriver(){
 // 	var driver = new webdriver.Builder()
@@ -36,6 +37,7 @@ driver.get('https://www.tut.by')
 		return driver.findElement(By.linkText('Афиша')).click();
 	})
 	.then(()=>{
+		driver.wait(until.elementLocated(By.name('str')));
 		return driver.findElement(By.name('str')).sendKeys('салют');
 	})
 	.then(()=>{
